@@ -52,4 +52,4 @@ playwright-report/
 test-results/
 
 # misc
-.serena/cache/
+.serena/
