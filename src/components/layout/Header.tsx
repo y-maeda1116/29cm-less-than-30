@@ -9,6 +9,11 @@ const NAV_ITEMS = [
   { href: '/#story', label: 'ブランドストーリー' },
 ] as const
 
+function isItemActive(href: string, pathname: string): boolean {
+  if (href === '/' || href.startsWith('/#')) return pathname === '/'
+  return pathname.startsWith(href)
+}
+
 export function Header() {
   const pathname = usePathname()
 
@@ -26,11 +31,12 @@ export function Header() {
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2" aria-label="グローバルナビゲーション">
           {NAV_ITEMS.map((item) => {
-            const active = item.href === pathname
+            const active = isItemActive(item.href, pathname)
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? 'page' : undefined}
                 className={`rounded-full px-3 py-1.5 text-xs font-bold sm:text-sm ${
                   active
                     ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'

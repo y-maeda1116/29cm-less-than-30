@@ -8,7 +8,7 @@ export function Footer() {
         <p className="max-w-md text-xs leading-relaxed text-zinc-500">
           本サイトは架空のECサイトです（ポートフォリオ作品）。掲載商品は実在しません。
         </p>
-        <Link href="/products" className="text-xs font-bold text-accent hover:underline">
+        <Link href="/products" className="text-xs font-bold text-accent-strong hover:underline">
           商品一覧へ →
         </Link>
       </div>
