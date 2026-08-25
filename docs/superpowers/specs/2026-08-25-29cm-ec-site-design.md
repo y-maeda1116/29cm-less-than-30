@@ -120,7 +120,7 @@ export interface Product {
 
 ### バッジ
 - SizeBadge: `29.0 cm` 形式、サイズ帯で濃淡（limit帯が最も強調）
-- WasteBadge: `普通ごみ OK` / `処分費用 ¥0`
+- WasteBadge: `可燃ごみ OK`（wasteType=burnable）/ `不燃ごみ OK`（wasteType=nonBurnable）+ 共通で `処分費用 ¥0` を併記
 
 ## 7. ページ仕様
 
