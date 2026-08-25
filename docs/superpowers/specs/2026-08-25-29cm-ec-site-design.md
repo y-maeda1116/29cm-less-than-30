@@ -108,8 +108,15 @@ export interface Product {
 
 ### カラー
 - ベース: モノトーン（zinc系スケール）
-- アクセント: オレンジ `#E8590C` 系 — サイズバッジ・`処分費用 ¥0` 表示・定規マーカーのみに限定使用
+- アクセント: オレンジ `#E8590C`（`--color-accent`）/ 濃色 `#C94A08`（`--color-accent-strong`）
+- アクセントの使用範囲: サイズバッジ・`処分費用 ¥0` 表示・定規マーカー・セクション見出しのアイブロウラベル・主要CTA（「カートに入れる」）
+- 白背景に直接乗せる小さなテキスト（〜13px級）には WCAG AA（4.5:1）達成のため `--color-accent-strong` を使用
 - Tailwind v4 の `@theme` にトークン定義（`--color-accent` 等）
+
+### アクセシビリティ
+- ナビの現在位置は `aria-current="page"` で通知（視覚表現と併用）
+- `scroll-behavior: smooth` は `prefers-reduced-motion: no-preference` のみに適用
+- sticky header の下にアンカー先が隠れないよう、アンカー対象セクションに `scroll-mt-*` を付与
 
 ### タイポグラフィ
 - 見出し・本文（日本語）: Zen Kaku Gothic New（next/font/google）
