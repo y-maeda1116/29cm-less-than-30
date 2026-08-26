@@ -11,7 +11,7 @@ const NAV_ITEMS = [
 
 function isItemActive(href: string, pathname: string): boolean {
   if (href === '/' || href.startsWith('/#')) return pathname === '/'
-  return pathname.startsWith(href)
+  return pathname === href || pathname.startsWith(`${href}/`)
 }
 
 export function Header() {
@@ -24,7 +24,10 @@ export function Header() {
           href="/"
           className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight"
         >
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-zinc-900 text-xs font-bold text-white dark:bg-zinc-100 dark:text-zinc-900">
+          <span
+            aria-hidden="true"
+            className="flex h-7 w-7 items-center justify-center rounded-md bg-zinc-900 text-xs font-bold text-white dark:bg-zinc-100 dark:text-zinc-900"
+          >
             29
           </span>
           29cm — Less than 30
@@ -36,7 +39,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                aria-current={active ? 'page' : undefined}
+                aria-current={active && !item.href.startsWith('/#') ? 'page' : undefined}
                 className={`rounded-full px-3 py-1.5 text-xs font-bold sm:text-sm ${
                   active
                     ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
