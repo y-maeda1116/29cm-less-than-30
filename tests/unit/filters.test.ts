@@ -31,7 +31,7 @@ describe('getSizeBand（サイズ帯の境界値）', () => {
     [25.0, 'under25'],
     [25.1, 'limit'],
     [29.9, 'limit'],
-  ])('maxSize %i → %s', (maxSize, expected) => {
+  ])('maxSize %f → %s', (maxSize, expected) => {
     expect(getSizeBand(maxSize)).toBe(expected)
   })
 })
@@ -112,5 +112,16 @@ describe('getRelated', () => {
     ]
     const related = getRelated(many, many[0], 3)
     expect(related.map((p) => p.id)).toEqual(['b', 'c', 'd'])
+  })
+
+  it('入力配列を破壊しない（イミュータビリティ規約）', () => {
+    const original = [
+      makeProduct({ id: 'a', category: 'desk' }),
+      makeProduct({ id: 'b', category: 'goods', featured: true }),
+      makeProduct({ id: 'c', category: 'kitchen' }),
+    ]
+    const snapshot = original.map((p) => p.id)
+    getRelated(original, original[0], 3)
+    expect(original.map((p) => p.id)).toEqual(snapshot)
   })
 })
