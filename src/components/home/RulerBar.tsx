@@ -36,13 +36,14 @@ export function RulerBar() {
               {tick}
             </span>
           ))}
-          <span
-            className="absolute -translate-x-1/2 font-mono text-[10px] font-bold text-accent"
-            style={{ left: MARKER_POSITION }}
-          >
-            29.9
-          </span>
         </div>
+        <span
+          className="absolute -top-9 -translate-x-1/2 font-mono text-[10px] font-bold leading-none text-accent"
+          style={{ left: MARKER_POSITION }}
+          aria-hidden
+        >
+          29.9
+        </span>
         <div
           className="absolute -top-5 h-9 w-0.5 bg-accent"
           style={{ left: MARKER_POSITION }}
