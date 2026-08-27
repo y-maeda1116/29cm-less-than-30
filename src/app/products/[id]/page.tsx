@@ -29,6 +29,11 @@ export async function generateMetadata({
   return {
     title: product.name,
     description: `${product.description} 最長辺${product.maxSize.toFixed(1)}cm、普通ごみで処分可能。`,
+    openGraph: {
+      title: product.name,
+      description: product.description,
+      images: [{ url: product.imageUrl }],
+    },
   }
 }
 
