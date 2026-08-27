@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { X } from 'lucide-react'
 
@@ -10,6 +10,8 @@ interface DemoModalProps {
 }
 
 export function DemoModal({ open, onClose }: DemoModalProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+
   useEffect(() => {
     if (!open) return
     const handleKey = (event: KeyboardEvent) => {
@@ -18,6 +20,14 @@ export function DemoModal({ open, onClose }: DemoModalProps) {
     window.addEventListener('keydown', handleKey)
     return () => window.removeEventListener('keydown', handleKey)
   }, [open, onClose])
+
+  useEffect(() => {
+    if (!open) return
+    const restoreTarget =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null
+    closeButtonRef.current?.focus()
+    return () => restoreTarget?.focus()
+  }, [open])
 
   return (
     <AnimatePresence>
@@ -56,6 +66,7 @@ export function DemoModal({ open, onClose }: DemoModalProps) {
             </p>
             <button
               type="button"
+              ref={closeButtonRef}
               onClick={onClose}
               className="mt-6 w-full rounded-full bg-zinc-900 py-2.5 text-sm font-bold text-white dark:bg-zinc-100 dark:text-zinc-900"
             >
