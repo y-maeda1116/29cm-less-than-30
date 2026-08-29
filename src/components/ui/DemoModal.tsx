@@ -62,7 +62,7 @@ export function DemoModal({ open, onClose }: DemoModalProps) {
               </button>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              本サイトは架空のECサイトです。カートへの追加・決済・配送は行われません。
+              本サイトは架空のECサイトです（ポートフォリオ作品）。カートへの追加・決済・配送は行われません。
             </p>
             <button
               type="button"

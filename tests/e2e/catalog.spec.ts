@@ -25,7 +25,7 @@ test.describe('商品カタログ', () => {
     await page.getByRole('button', { name: '小型家具' }).click()
     await page.getByRole('button', { name: '〜25cm' }).click()
     await expect(page.getByTestId('empty-state')).toBeVisible()
-    await page.getByRole('button', { name: 'フィルタをリセット' }).click()
+    await page.getByRole('button', { name: 'フィルターをリセット' }).click()
     await expect(page.getByTestId('product-card')).toHaveCount(14)
   })
 

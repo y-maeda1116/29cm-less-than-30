@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test'
 test.describe('サイト全体のナビゲーション', () => {
   test('ホーム→カタログ→詳細→ストーリーの導線が通る', async ({ page }) => {
     await page.goto('/')
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('粗大ごみ券')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('超えない')
 
     await page.getByRole('link', { name: '商品を見る' }).click()
     await expect(page).toHaveURL(/\/products$/)

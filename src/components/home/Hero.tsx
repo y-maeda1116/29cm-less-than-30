@@ -22,9 +22,9 @@ export function Hero() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mt-4 text-4xl font-black leading-tight tracking-tight sm:text-6xl"
       >
-        粗大ごみ券、
+        30cmを、
         <br />
-        いりません。
+        超えない。
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 12 }}

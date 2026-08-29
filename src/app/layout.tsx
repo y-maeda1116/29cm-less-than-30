@@ -18,11 +18,11 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: '29cm - Less than 30｜粗大ごみ券、いりません。',
+    default: '29cm - Less than 30｜30cmを、超えない。',
     template: '%s | 29cm - Less than 30',
   },
   description:
-    'すべての商品の最長辺は29.9cm以下。粗大ごみ手続き不要、処分費用¥0の架空ECサイト（ポートフォリオ作品）。',
+    'すべての商品の最長辺は29.9cm以下。粗大ごみ手続き不要、処分費用 ¥0 の架空ECサイト（ポートフォリオ作品）。',
 }
 
 export default function RootLayout({

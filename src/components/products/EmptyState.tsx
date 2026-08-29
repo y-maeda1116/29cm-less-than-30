@@ -13,7 +13,7 @@ export function EmptyState({ onReset }: { onReset: () => void }) {
         onClick={onReset}
         className="mt-5 rounded-full bg-zinc-900 px-5 py-2 text-xs font-bold text-white dark:bg-zinc-100 dark:text-zinc-900"
       >
-        フィルタをリセット
+        フィルターをリセット
       </button>
     </div>
   )

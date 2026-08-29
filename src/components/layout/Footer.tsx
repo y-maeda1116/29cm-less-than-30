@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400">© 2026 29cm - Less than 30</p>
         <p className="max-w-md text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
-          本サイトは架空のECサイトです（ポートフォリオ作品）。掲載商品は実在しません。
+          本サイトは架空のECサイトです（ポートフォリオ作品）。掲載商品は実在せず、購入・決済はできません。
         </p>
         <Link
           href="/products"
