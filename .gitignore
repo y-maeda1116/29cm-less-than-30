@@ -53,3 +53,6 @@ test-results/
 
 # misc
 .serena/
+
+# next output: export (GitHub Pages)
+out
