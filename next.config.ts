@@ -1,17 +1,22 @@
 import type { NextConfig } from 'next'
 
-/** GitHub Pages ビルド（GITHUB_PAGES=1）でのみ静的エクスポートを有効化 */
+/** 静的エクスポート（Netlify / Cloudflare Pages / Render 等）。basePathなし */
+const isStaticExport = process.env.STATIC_EXPORT === '1'
+/** GitHub Pages ビルド。静的エクスポート + リポジトリサブパスの basePath */
 const isGitHubPages = process.env.GITHUB_PAGES === '1'
+/** 静的ファイルのみの配信では Image Optimization が動作しない */
+const isExport = isStaticExport || isGitHubPages
 
 const nextConfig: NextConfig = {
-  ...(isGitHubPages && {
+  ...(isExport && {
     output: 'export',
+  }),
+  ...(isGitHubPages && {
     basePath: '/29cm-less-than-30',
     trailingSlash: true,
   }),
   images: {
-    // 静的エクスポートでは Image Optimization が動作しないため無効化
-    ...(isGitHubPages && { unoptimized: true }),
+    ...(isExport && { unoptimized: true }),
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'picsum.photos' },

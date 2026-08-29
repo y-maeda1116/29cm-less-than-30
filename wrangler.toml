@@ -1,0 +1,6 @@
+# Cloudflare Pages — 静的エクスポートで配信
+# ビルドはローカルまたはダッシュボードのビルド設定で行う:
+#   STATIC_EXPORT=1 npm run build && npx wrangler pages deploy out
+name = "29cm-less-than-30"
+compatibility_date = "2026-08-29"
+pages_build_output_dir = "out"

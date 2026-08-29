@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.git
+.github
+.serena
+test-results
+playwright-report
+docs
+*.md

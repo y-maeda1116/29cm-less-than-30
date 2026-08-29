@@ -1,0 +1,7 @@
+# Render Blueprint — 静的サイトとして配信
+services:
+  - type: web
+    name: 29cm-less-than-30
+    runtime: static
+    buildCommand: STATIC_EXPORT=1 npm run build
+    staticPublishPath: ./out

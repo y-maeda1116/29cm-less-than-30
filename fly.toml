@@ -1,0 +1,18 @@
+# fly.io — Node サーバー（next start）で配信
+# アプリ名はグローバル一意のため `fly launch` 実行時に確定・上書きされる
+app = "29cm-less-than-30"
+primary_region = "nrt"
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/"
